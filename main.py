@@ -50,4 +50,30 @@ def merge_sort(arr,cmp):
 
 # must be in-place sort
 def quick_sort(arr,cmp):
-    pass
+    #pass
+    bot = 0
+    top = len(arr) - 1
+
+    if bot < top:
+        x = partition( arr, bot , top)
+        z = x
+
+        while x != bot:
+            y = partition( arr , bot , x - 1)
+            x = x - 1
+        
+        while z != top:
+            a = partition(arr , z + 1 , top)
+
+def partition ( arr , bot , top):
+    x = arr[top]
+    i = bot - 1
+    
+    for j in range( bot, top):
+        if arr[j] <= x:
+            i = i + 1
+            (arr[i],  arr[j]) = (arr[j] , arr[i])
+    
+    ( arr[i + 1] , arr[top]) = (arr[top], arr[i +1])
+
+    return i + 1
