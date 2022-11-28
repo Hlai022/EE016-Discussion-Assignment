@@ -15,7 +15,38 @@ def multi_sort(arr, cmp, method="None"):
 
 # must be in-place sort
 def merge_sort(arr,cmp):
-    pass
+    #pass
+    if len(arr) > 1:
+        i = 0
+        j = 0
+        k = 0
+        half = len(arr)//2
+        leftSide = arr[:half]
+        rightSide = arr[half:]
+
+        merge_sort(leftSide)
+        merge_sort(rightSide)
+
+        while i < len(leftSide) and j < len(rightSide):
+            if leftSide[i] <= rightSide[j]:
+                arr[k] = leftSide[i]
+                i = i + 1
+
+            else:
+                arr[k] = rightSide[j]
+                j = j + 1
+
+            k = k + 1
+
+        while i < len(leftSide):
+            arr[k] = leftSide[i]
+            i = i + 1
+            k = k + 1
+
+        while j < len(rightSide):
+            arr[k] = rightSide[j]
+            j = j + 1
+            k = k + 1
 
 # must be in-place sort
 def quick_sort(arr,cmp):
