@@ -28,7 +28,7 @@ def merge_sort(arr,cmp):
         merge_sort(rightSide)
 
         while i < len(leftSide) and j < len(rightSide):
-            if leftSide[i] <= rightSide[j]:
+            if cmp( leftSide[i] , rightSide[j]) >= 0: #leftSide[i] <= rightSide[j]:
                 arr[k] = leftSide[i]
                 i = i + 1
 
@@ -54,7 +54,7 @@ def quick_sort(arr,cmp):
     bot = 0
     top = len(arr) - 1
 
-    if bot < top:
+    if cmp( bot, top ) > 0: #bot < top:
         x = partition( arr, bot , top)
         z = x
 
