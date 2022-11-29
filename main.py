@@ -16,7 +16,7 @@ def multi_sort(arr, cmp, method="None"):
 # must be in-place sort
 def merge_sort(arr,cmp):
     #pass
-    if len(arr) > 1:
+    if cmp( len(arr) , 1 ) > 0: #len(arr) > 1:
         i = 0
         j = 0
         k = 0
@@ -27,7 +27,7 @@ def merge_sort(arr,cmp):
         merge_sort(leftSide)
         merge_sort(rightSide)
 
-        while i < len(leftSide) and j < len(rightSide):
+        while cmp( i , len(leftSide) ) > 0 and cmp(j, len(rightSide)) > 0:#i < len(leftSide) and j < len(rightSide):
             if cmp( leftSide[i] , rightSide[j]) >= 0: #leftSide[i] <= rightSide[j]:
                 arr[k] = leftSide[i]
                 i = i + 1
@@ -38,12 +38,12 @@ def merge_sort(arr,cmp):
 
             k = k + 1
 
-        while i < len(leftSide):
+        while cmp( i , len(leftSide)) > 0:#i < len(leftSide):
             arr[k] = leftSide[i]
             i = i + 1
             k = k + 1
 
-        while j < len(rightSide):
+        while cmp( j, len(rightSide)) > 0:#j < len(rightSide):
             arr[k] = rightSide[j]
             j = j + 1
             k = k + 1
@@ -70,7 +70,7 @@ def partition ( arr , bot , top):
     i = bot - 1
     
     for j in range( bot, top):
-        if arr[j] <= x:
+        if cmp( arr[j] , x ) >= 0:#arr[j] <= x:
             i = i + 1
             (arr[i],  arr[j]) = (arr[j] , arr[i])
     
